@@ -8,7 +8,6 @@ html {
     margin: auto;
     width: 650px;
     height: 650px;
-    background-color: brown;
     display: flex;
     flex-direction: column;
 }
