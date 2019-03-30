@@ -3,6 +3,7 @@ html {
 }
 
 .container {
+    background-color: white;
     margin-top: 1vh;
     margin-bottom: 4vh;
     margin: auto;
