@@ -2,6 +2,11 @@ html {
     background-color: rgb(64, 74, 119);
 }
 
+h1 {
+    color: white;
+    margin-bottom: 1vh;
+    text-align: center;
+}
 .container {
     background-color: white;
     margin-top: 1vh;

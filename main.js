@@ -17,7 +17,7 @@ const createGrid = function(num) {
     }
 }
 
-createGrid(16)
+createGrid(45)
 
 const pixel = document.querySelectorAll('.div-column')
 
