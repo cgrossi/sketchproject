@@ -1,0 +1,55 @@
+html {
+    background-color: rgb(64, 74, 119);
+}
+
+.container {
+    margin-top: 1vh;
+    margin-bottom: 4vh;
+    margin: auto;
+    width: 700px;
+    height: 700px;
+    background-color: brown;
+}
+
+.set-canvas {
+    display: flex;
+}
+
+button {
+    background: rgb(53, 53, 53);
+    padding: 1.5em;
+    color: white;
+    font-size: 17px;
+    border: none;
+    margin: auto;
+    margin-bottom: 1vh;
+}
+
+.div-column {
+    background: black;
+    min-height: 30px;
+    flex: 1;
+    border-left: 1px solid white;
+}
+
+.div-column:last-child {
+    border-right: 1px solid white;
+}
+
+/* - css version of hover effect - */
+/* .div-column:hover {
+    background: white;
+} */
+
+.draw {
+    background: white;
+}
+
+.div-row {
+    display: flex;
+    border-top: 1px solid white;
+}
+
+.div-row:last-child {
+    border-bottom: 1px solid white;
+}
