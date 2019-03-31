@@ -16,11 +16,8 @@ h1 {
     width: 650px;
     height: 650px;
     display: flex;
+    border: 3px solid white;
     flex-direction: column;
-}
-
-.set-canvas {
-    display: flex;
 }
 
 button {
@@ -43,11 +40,6 @@ button {
     border-right: 1px solid white;
 }
 
-/* - css version of hover effect - */
-/* .div-column:hover {
-    background: white;
-} */
-
 .draw {
     background: white;
 }
@@ -60,4 +52,22 @@ button {
 
 .div-row:last-child {
     border-bottom: 1px solid white;
+}
+
+.active-btn {
+    background: rgb(70, 70, 70);
+    border: 2px solid rgb(206, 206, 206);
+    padding: 1.2em 1.5em;
+    color: white;
+    font-size: 17px;
+    margin: auto;
+    margin-bottom: 1vh;
+}
+
+.nav {
+    display: flex;
+    width: 650px;
+    margin: auto;
+    justify-content: space-evenly;
+    
 }

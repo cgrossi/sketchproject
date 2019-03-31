@@ -1,6 +1,29 @@
 const container = document.querySelector('.container')
-const setCanvas = document.querySelector('button')
+const setCanvas = document.querySelector('#reset-btn')
+const rainbow = document.querySelector('#rainbow-brush')
+const erase = document.querySelector('#erase-brush')
+let rainbowBrush = false;
+let eraseBrush = false;
 
+const rgbValue = function(){
+    return Math.floor(Math.random()*256).toString()
+}
+
+const alphaValue = function() {
+    const transparency = [0.3,0.4,0.5,0.6,0.7,0.8]
+    const index = Math.floor(Math.random()*transparency.length)
+    return transparency[index]
+}
+
+const makeRandom = function() {
+    let result = ''
+    const redValue = rgbValue()
+    const greenValue = rgbValue()
+    const blueValue = rgbValue()
+    const aValue = alphaValue()
+    result = `rgba(${redValue}, ${greenValue}, ${blueValue}, ${aValue})`
+    return result
+}
 
 const createGrid = function(num) {
     for(let i = 1; i <= num; i++) {
@@ -17,13 +40,19 @@ const createGrid = function(num) {
     }
 }
 
-createGrid(45)
+createGrid(40)
 
 const pixel = document.querySelectorAll('.div-column')
 
 pixel.forEach(function(elem) {
     elem.addEventListener('mouseover', function(e) {
-    e.target.classList.add('draw')
+    if(!rainbowBrush && !eraseBrush) {
+        e.target.classList.add('draw')
+    } else if(rainbowBrush && !eraseBrush) {
+        e.target.setAttribute('style', `background-color: ${makeRandom()};`)
+    } else if(!rainbowBrush && eraseBrush) {
+        e.target.setAttribute('style', `background-color: black;`)
+    }
     });
 });
 
@@ -49,3 +78,39 @@ setCanvas.addEventListener('click', function() {
         });
     });
 })
+
+rainbow.addEventListener('click', function(e) {
+    if(eraseBrush) {
+        eraseBrush = false;
+        rainbowBrush = true;
+        erase.setAttribute('style', 'background: rgb(53, 53, 53); border: none;')
+        rainbow.setAttribute('style', 'background: rgb(70, 70, 70); border: 2px solid rgb(206, 206, 206);')
+    } else {
+        if(rainbowBrush) {
+            rainbowBrush = false
+            e.target.setAttribute('style', 'background: rgb(53, 53, 53); border: none;')
+        } else {
+            rainbowBrush = true
+            e.target.setAttribute('style', 'background: rgb(70, 70, 70); border: 2px solid rgb(206, 206, 206);')
+        }
+    }
+})
+
+erase.addEventListener('click', function(e) {
+    if(rainbowBrush) {
+        rainbowBrush = false;
+        eraseBrush = true;
+        rainbow.setAttribute('style', 'background: rgb(53, 53, 53); border: none;')
+        erase.setAttribute('style', 'background: rgb(70, 70, 70); border: 2px solid rgb(206, 206, 206);')
+    } else {
+        if(eraseBrush) {
+            eraseBrush = false
+            e.target.setAttribute('style', 'background: rgb(53, 53, 53); border: none;')
+        } else {
+            eraseBrush = true
+            e.target.setAttribute('style', 'background: rgb(70, 70, 70); border: 2px solid rgb(206, 206, 206);')
+        }
+    }
+})
+
+
